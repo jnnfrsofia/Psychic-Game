@@ -14,7 +14,7 @@
 	<script type="text/javascript">
 
 		//Set my array for all of the letters of the alphabet and the user's guesses
-		var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y','z'];
+		var alphabet = ['a ', 'b ', 'c ', 'd ', 'e ', 'f ', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y','z'];
 		var guesses = [];
 
 
@@ -52,12 +52,20 @@
 				else if (userGuess != compGuess) {
 					guessesLeft --;
 					//when guessLeft=0 the var Losses counter increases by 1 and guessesLeft=9 and guesses array []
+					if (guessesLeft === 0) {
+						guessesLeft = 9;
+						guesses = [];
+						Losses++;
+					
+
+					}
+					}
 
 
 
 				
 
-				}
+				
 
 
 
@@ -68,7 +76,7 @@
           	"<p>Wins: " + Wins + "</p>" +
           	"<p>Losses: " + Losses + "</p>" +
           	"<p>Guesses Left: " + guessesLeft + "</p>" +
-          	"<p>Your Guesses So Far: " + guesses +  "</p>";
+          	"<p>Your Guesses So Far: " + guesses  +  "</p>";
 
           // Injecting the HTML we just created into our div and updating the game information on our page.
           	document.querySelector("#game").innerHTML = html;
